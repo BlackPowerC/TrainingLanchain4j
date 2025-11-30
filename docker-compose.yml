@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  pgvector15:
+    image: 'pgvector/pgvector:pg17-trixie'
+    environment:
+      POSTGRES_PASSWORD: 'langchain4j'
+      POSTGRES_USER: 'langchain4j'
+      POSTGRES_DB: 'langchain4j'
+    restart: always
+    ports:
+      - '5560:5432'
+    volumes:
+      - $HOME/docker-volumes/langchain4j/pgvector17:/var/lib/postgresql/data
