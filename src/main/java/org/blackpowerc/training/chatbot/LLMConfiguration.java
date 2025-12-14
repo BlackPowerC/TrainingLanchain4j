@@ -96,9 +96,10 @@ public class LLMConfiguration
      *
      * @param hostAndPort L'ip ou le nom d'hôte de ollama et son port. Ex: http://127.0.0.1:11434
      * @param model Le nom du modèle d'embedding à utiliser.
+     * @param enableLogs Mettre à true pour activer les logs du modèle.
      * @return
      */
-    public EmbeddingModel getOllamaEmbeddingModel(final String hostAndPort, final String model)
+    public EmbeddingModel getOllamaEmbeddingModel(final String hostAndPort, final String model, final boolean enableLogs)
     {
         Objects.requireNonNull(model) ;
         Objects.requireNonNull(hostAndPort) ;
@@ -106,8 +107,8 @@ public class LLMConfiguration
         return OllamaEmbeddingModel.builder()
                 .maxRetries(5)
                 .baseUrl(hostAndPort)
-                .logRequests(true)
-                .logResponses(true)
+                .logRequests(enableLogs)
+                .logResponses(enableLogs)
                 .timeout(Duration.ofMinutes(1))
                 .modelName(model)
                 .build() ;
