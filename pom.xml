@@ -19,10 +19,10 @@
 
     <properties>
         <langchain.version>1.7.1</langchain.version>
-        <apache-tika.version>3.2.0</apache-tika.version>
         <langchain-core.version>1.0.1</langchain-core.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <testcontainers.version>1.19.3</testcontainers.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -53,28 +53,18 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- region document parser -->
-        <!-- https://mvnrepository.com/artifact/dev.langchain4j/langchain4j-document-parser-apache-tika -->
         <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-document-parser-apache-tika</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.tika/tika-core -->
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-core</artifactId>
-            <version>${apache-tika.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.tika/tika-parsers-standard-package -->
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-parsers-standard-package</artifactId>
-            <version>${apache-tika.version}</version>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
             <scope>compile</scope>
         </dependency>
         <!-- endregion -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.7</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
